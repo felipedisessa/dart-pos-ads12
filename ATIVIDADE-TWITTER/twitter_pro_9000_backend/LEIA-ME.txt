@@ -1,0 +1,49 @@
+TWITTER PRO 9000
+
+Fiz um app parecido com o Twitter. A parte do celular foi feita em Flutter e o servidor em PHP com MySQL.
+
+No app da para:
+- fazer cadastro (nome, e-mail e senha) e login
+- postar texto e, se quiser, uma foto
+- ver as postagens de todo mundo e curtir
+- pedir amizade para quem postou e aceitar ou recusar pedidos
+- comentar, mas so nas postagens de amigos
+- buscar pessoas pelo nome e postagens por palavras
+
+O login fica salvo no shared_preferences, entao o app abre ja logado.
+
+
+COMO RODAR O BACKEND
+
+Precisa ter o XAMPP instalado em C:\xampp.
+
+E so dar dois cliques no iniciar.bat. Ele ja faz tudo sozinho:
+1. liga o MySQL do XAMPP
+2. cria o banco twitter_pro_9000 e as tabelas (se ja existirem, nao apaga nada)
+3. liga o servidor PHP na porta 8000
+
+Tem que deixar a janela aberta. Se fechar, o servidor desliga.
+
+Para ver se esta funcionando, abre no navegador:
+http://localhost:8000/api.php
+
+Se aparecer {"ok":true,"app":"Twitter Pro 9000 API"} esta tudo certo.
+
+
+COMO RODAR O APP
+
+Com o backend ligado, abre a pasta twitter_pro_9000 no VS Code e roda:
+flutter run -d chrome
+
+No emulador Android o app ja usa o endereco 10.0.2.2:8000.
+No celular de verdade tem que trocar o endereco no arquivo lib/api.dart pelo IP do computador.
+
+
+ARQUIVOS DO BACKEND
+
+iniciar.bat  - liga tudo
+banco.sql    - cria o banco e as tabelas
+config.php   - conexao com o banco
+api.php      - todas as funcoes da API
+router.php   - faz a API e as fotos funcionarem
+uploads      - pasta onde ficam as fotos postadas
